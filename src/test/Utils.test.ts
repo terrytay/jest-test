@@ -40,5 +40,19 @@ describe("Utils test suite", () => {
 		expect(expectedQuery).toBe(expectedQuery);
 	});
 
-	test.todo("Test invalid URL");
+	// test.todo("Test invalid URL");
+	test("Test invalid URL", () => {
+		const expectError = () => Utils.parseUrl("");
+
+		expect(expectError).toThrowError();
+	});
+
+	test("Test invalid URL with try/catch", () => {
+		try {
+			Utils.parseUrl("");
+		} catch (err) {
+			expect(err).toBeInstanceOf(Error);
+			expect(err).toHaveProperty("message", "Empty url!");
+		}
+	});
 });
