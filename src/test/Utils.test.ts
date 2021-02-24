@@ -1,6 +1,16 @@
 import { Utils } from "../app/Utils";
 
+// Can append .skip or .only to describe/test to modify what's tested
+
 describe("Utils test suite", () => {
+	beforeEach(() => {
+		console.log("Before each");
+	});
+
+	beforeAll(() => {
+		console.log("Before all");
+	});
+
 	test("First test", () => {
 		const result = Utils.toUpperCase("abc");
 		expect(result).toBe("ABC");
